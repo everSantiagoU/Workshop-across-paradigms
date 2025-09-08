@@ -11,4 +11,9 @@ int main() {
         AZUL
     };
 
+    struct Libro {
+        char titulo[50];
+        char autor[50];
+        int paginas;
+    };
 }
