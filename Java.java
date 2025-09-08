@@ -6,5 +6,11 @@ public class paradigmas {
         float y = 3.1416;
         String w = "hola";
         boolean = True;
+
+        public enum DiaSemana {
+            LUNES,
+            MARTES,
+            MIERCOLES
+        }
     }
 }

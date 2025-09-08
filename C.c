@@ -4,5 +4,11 @@ int main() {
     float y = 3.1416;
     bool w = true;
     char z = "a";
-    
+
+    enum Color {
+        ROJO,
+        VERDE,
+        AZUL
+    };
+
 }
