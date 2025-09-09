@@ -27,5 +27,37 @@ public class paradigmas {
         edades.put("maría", 25);
         edades.put("pedro", 35);
 
+        // Clase para el nodo
+        class Nodo {
+            int dato;
+            Nodo siguiente;
+
+            // Constructor del nodo
+            Nodo(int dato) {
+                this.dato = dato;
+                this.siguiente = null;
+            }
+        }
+
+        // Clase para la lista enlazada
+        class ListaEnlazada {
+            Nodo cabeza; // primer nodo de la lista enlazada
+            // Funcion para agregar un nodo al inicio
+            public void agregarAlInicio(int nuevoDato) {
+            Nodo nuevoNodo = new Nodo(nuevoDato);
+            nuevoNodo.siguiente = cabeza;
+            cabeza = nuevoNodo;
+        }
+        // Función para imprimir la lista
+        public void imprimirLista() {
+            Nodo nodoActual = cabeza;
+            while (nodoActual != null) {
+                System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+            System.out.println("NULL");
+        }
+        }
+
     }
 }

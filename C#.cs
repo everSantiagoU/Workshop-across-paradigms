@@ -26,5 +26,37 @@ capitales.Add("Colombia", "Bogota");
 capitales.Add("Peru", "Lima");
 capitales.Add("Chile", "Santiago");
 
+//lista enlazada
+//clase para el nodo
+public class Nodo {
+    public int dato;
+    public Nodo siguiente;
+
+    public Nodo(int dato) {
+        this.dato = dato;
+        siguiente = null;
+    }
+}
+//clase de la lista enlazada
+public class ListaEnlazada {
+    public Nodo cabeza; // Referencia al priner nodo
+
+    // Funcion para agregar un nodo al inicio
+    public void AgregarAlInicio(int nuevoDato) {
+        Nodo nuevoNodo = new Nodo(nuevoDato);
+        nuevoNodo.siguiente = cabeza;
+        cabeza = nuevoNodo;
+    }
+
+    // Funcion para imprimir la lista
+    public void ImprimirLista() {
+        Nodo nodoActual = cabeza;
+        while (nodoActual != null) {
+            Console.Write(nodoActual.dato + " -> ");
+            nodoActual = nodoActual.siguiente;
+        }
+        Console.WriteLine("NULL");
+    }
+}
 
 

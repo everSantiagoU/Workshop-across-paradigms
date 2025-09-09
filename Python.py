@@ -22,3 +22,30 @@ edades = {
     "Pedro": 35
 }
 
+#lista enlazada
+# clase para el nodo
+class Nodo:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None  # cabeza de la lista
+
+# clase para la lista enlazada
+class ListaEnlazada:
+    def __init__(self):
+        self.cabeza = None #referencia a la cabeza
+
+    # Funcion para agregar un nodo al inicio de la lista
+    def agregar_al_inicio(self, nuevo_dato):
+        nuevo_nodo = Nodo(nuevo_dato)
+        nuevo_nodo.siguiente = self.cabeza
+        self.cabeza = nuevo_nodo
+
+    # Funcion para imprimir la lista enlazad
+    def imprimir_lista(self):
+        nodo_actual = self.cabeza
+        while nodo_actual is not None:
+            print(nodo_actual.dato, end=" -> ")
+            nodo_actual = nodo_actual.siguiente
+        print("None")
+
+

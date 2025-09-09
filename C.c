@@ -5,6 +5,13 @@ int main() {
     float y = 3.1416;
     bool w = true;
     char z = "a";
+
+    //agregamos nodos a la lista enlazada
+    struct Nodo* cabeza = NULL;
+    agregar_al_inicio(&cabeza, 10);
+    agregar_al_inicio(&cabeza, 20);
+    agregar_al_inicio(&cabeza, 30);
+
     //declaracion del enum
     enum Color {
         ROJO,
@@ -37,7 +44,17 @@ int main() {
     //enlazamos el nuevo nodo con el nodo de la cabeza
     nuevo_nodo->siguiente = (*cabeza_ref); 
     (*cabeza_ref) = nuevo_nodo;
-}
+    }
+
+    //funcion para imprimir la lista
+    void imprimir_lista(struct Nodo* nodo) {
+    while (nodo != NULL) {
+        printf("%d -> ", nodo->dato);
+        nodo = nodo->siguiente;
+    }
+    printf("\n");
+    }
+
 
 
 
