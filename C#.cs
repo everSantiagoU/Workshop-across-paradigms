@@ -59,4 +59,58 @@ public class ListaEnlazada {
     }
 }
 
+//arbol binario
+//clase para el nodo
+public class NodoArbol {
+    public int dato;
+    public NodoArbol izquierda;
+    public NodoArbol derecha;
+
+    public NodoArbol(int dato) {
+        this.dato = dato;
+        izquierda = null;
+        derecha = null;
+    }
+}
+
+//clase para el arbol binario
+public class ArbolBinario {
+    NodoArbol raiz;
+
+    public ArbolBinario() {
+        raiz = null;
+    }
+
+    //metodo para insertar
+    public void Insertar(int dato) {
+        raiz = InsertarRecursivo(raiz, dato);
+    }
+
+    private NodoArbol InsertarRecursivo(NodoArbol raiz, int dato) {
+        if (raiz == null) {
+            return new NodoArbol(dato);
+        }
+        if (dato < raiz.dato) {
+            raiz.izquierda = InsertarRecursivo(raiz.izquierda, dato);
+        } else if (dato > raiz.dato) {
+            raiz.derecha = InsertarRecursivo(raiz.derecha, dato);
+        }
+        return raiz;
+    }
+
+    //metodo para el orden transversal del arbol binario
+    public void Inorden() {
+        InordenRecursivo(raiz);
+    }
+
+    private void InordenRecursivo(NodoArbol raiz) {
+        if (raiz != null) {
+            InordenRecursivo(raiz.izquierda);
+            Console.Write(raiz.dato + " ");
+            InordenRecursivo(raiz.derecha);
+        }
+    }
+}
+
+
 

@@ -55,6 +55,44 @@ int main() {
     printf("\n");
     }
 
+    // estructura para el nodo
+    struct NodoArbol {
+        int dato;
+        struct NodoArbol* izquierda;
+        struct NodoArbol* derecha;
+    };
+
+    // funcion parra crear un nuevo nodo
+    struct NodoArbol* crearNodo(int dato) {
+        struct NodoArbol* nuevo_nodo = (struct NodoArbol*)malloc(sizeof(struct NodoArbol));
+        nuevo_nodo->dato = dato;
+        nuevo_nodo->izquierda = NULL;
+        nuevo_nodo->derecha = NULL;
+        return nuevo_nodo;
+    }
+
+    //funcion para insertar un nuevo nodo
+    struct NodoArbol* insertar(struct NodoArbol* raiz, int dato) {
+        if (raiz == NULL) {
+            return crearNodo(dato);
+        }
+        if (dato < raiz->dato) {
+            raiz->izquierda = insertar(raiz->izquierda, dato);
+        } else if (dato > raiz->dato) {
+            raiz->derecha = insertar(raiz->derecha, dato);
+        }
+        return raiz;
+    }
+
+    //funcion para el orden transveral del arbol (derecha, izquierda)
+    void inorden(struct NodoArbol* raiz) {
+        if (raiz != NULL) {
+            inorden(raiz->izquierda);
+            printf("%d ", raiz->dato);
+            inorden(raiz->derecha);
+        }
+    }
+
 
 
 

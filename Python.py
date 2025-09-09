@@ -48,4 +48,39 @@ class ListaEnlazada:
             nodo_actual = nodo_actual.siguiente
         print("None")
 
+#arbol binario
+#clase para el nodo
+class NodoArbol:
+    def __init__(self, dato):
+        self.dato = dato
+        self.izquierda = None
+        self.derecha = None
+
+# clase para el arbol binario
+class ArbolBinario:
+    def __init__(self):
+        self.raiz = None
+
+    # funcion para insertar
+    def insertar(self, dato):
+        self.raiz = self._insertar_recursivo(self.raiz, dato)
+
+    def _insertar_recursivo(self, raiz, dato):
+        if raiz is None:
+            return NodoArbol(dato)
+        if dato < raiz.dato:
+            raiz.izquierda = self._insertar_recursivo(raiz.izquierda, dato)
+        elif dato > raiz.dato:
+            raiz.derecha = self._insertar_recursivo(raiz.derecha, dato)
+        return raiz
+
+    #funciuon para el orden transversal del arbol binario
+    def inorden(self):
+        self._inorden_recursivo(self.raiz)
+
+    def _inorden_recursivo(self, raiz):
+        if raiz is not None:
+            self._inorden_recursivo(raiz.izquierda)
+            print(raiz.dato, end=" ")
+            self._inorden_recursivo(raiz.derecha)
 
